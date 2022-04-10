@@ -7,6 +7,9 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
+import { dirname } from "path";
+
+const __dirname = dirname(__filename);
 
 // middleware
 const app = express();
