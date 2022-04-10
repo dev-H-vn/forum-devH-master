@@ -7,11 +7,15 @@ const client = twilio(accountSid, authToken);
 
 export const sendSms = (to, body, txt) => {
   try {
-    client.messages.create({
-      body: `Fo rum Dev-H wellcome ${txt} to verify the account enter this code ${body}`,
-      from,
-      to,
-    });
+    client.messages
+      .create({
+        body: `Fo rum Dev-H wellcome ${txt} to verify the account enter this code ${body}`,
+        from,
+        to,
+        messagingServiceSid: "MGfa8394673a08177513c5181d58541ac5",
+      })
+      .then((message) => console.log(message.sid))
+      .done();
   } catch (err) {
     console.log(err);
   }
